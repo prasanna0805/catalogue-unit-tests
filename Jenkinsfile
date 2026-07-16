@@ -11,6 +11,6 @@ if ( env.BRANCH_NAME.equalsIgnoreCase('main') ){
     EKSMainPipeline(configMap)
 }
 else{
-    configMap["jiraProject"] = "ROBO"
+   
     nodeJSEKSPipeline(configMap)
 }
