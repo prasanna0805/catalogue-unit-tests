@@ -7,9 +7,7 @@ def configMap = [
 echo "Triggering the library pipeline"
 
 if ( env.BRANCH_NAME.equalsIgnoreCase('main') ){
-    configMap["jiraProject"] = "ROBO"
-    EKSMainPipeline(configMap)
-}
+    echo "checking later"
 else{
    
     nodeJSEKSPipeline(configMap)
