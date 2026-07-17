@@ -64,7 +64,7 @@
 
 # 11. entrypoint + cmd
 
-FROM node:20.19-alpine3.22 AS builder
+FROM node:20.19-alpine3.21 AS builder
 # this creates /app and move there
 WORKDIR /app
 COPY package.json .
@@ -72,7 +72,7 @@ COPY *.js .
 RUN npm install
 
 
-FROM node:20.19-alpine3.22
+FROM node:20.19-alpine3.21
 # this creates /app and move there
 WORKDIR /app
 EXPOSE 8080
