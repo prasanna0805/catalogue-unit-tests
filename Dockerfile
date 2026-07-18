@@ -1,4 +1,4 @@
-FROM node:20-alpine3.20 AS builder
+FROM node:20-alpine AS builder
 # this creates /app and move there
 WORKDIR /app
 COPY package.json .
@@ -6,7 +6,7 @@ COPY *.js .
 RUN npm install
 
 
-FROM node:20-alpine3.20
+FROM node:20-alpine
 # this creates /app and move there
 WORKDIR /app
 EXPOSE 8080
