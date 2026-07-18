@@ -8,6 +8,8 @@ RUN npm install
 
 FROM node:20-alpine
 # this creates /app and move there
+RUN apk update && apk upgrade --no-cache
+# this creates /app and move there
 WORKDIR /app
 EXPOSE 8080
 COPY --from=builder /app /app
