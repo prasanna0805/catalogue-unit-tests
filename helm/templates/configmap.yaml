@@ -1,5 +1,5 @@
 # config file from k8-resource
-apiVersion: apps/v1
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: catalogue
