@@ -1,12 +1,8 @@
-
-# to create multiple pods
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue
   namespace: {{ .Values.namespace }}
-  # these labels are replicaset labels
   labels:
     project: roboshop
     tier: backend
@@ -14,56 +10,42 @@ metadata:
 
 spec:
   replicas: {{ .Values.deployment.replicas }}
-  selector: 
-    # using these labels replica set selects the pod    
+  selector:
     matchLabels:
-     project: roboshop
-     tier: backend
-     component: catalogue
+      project: roboshop
+      tier: backend
+      component: catalogue
 
-    # this is pod definition, pod is subset of replica
   template:
-    metadata: 
+    metadata:
       labels:
         project: roboshop
         tier: backend
         component: catalogue
     spec:
-     containers:
-     - name: catalogue
-      #  image: kopparthiprasanna/catalogue:1.0.0
-      # for catalogue optimization change to new version
-       image: "{{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}"
-       # safe to pull everytime, there may be images with same version rebuild and push again.
-       imagePullPolicy: Always
-       resources:
-        requests:
-          cpu: "100m"
-          memory: "128Mi"
-        limits:
-          cpu: "100m"
-          memory: "128Mi"
-       # here add readiness AND LIVENESS
-       readinessProbe:
-        #httpGet:
-          #path: /health
-          #port: 8080
+      containers:
+      - name: catalogue
+        image: "{{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+        readinessProbe:
           tcpSocket:
             port: 8080
           failureThreshold: 2
           periodSeconds: 10
           initialDelaySeconds: 15
-       livenessProbe:
+        livenessProbe:
           httpGet:
-           path: /health
-           port: 8080
+            path: /health
+            port: 8080
           failureThreshold: 2
           periodSeconds: 10
-       envFrom:
+        envFrom:
         - configMapRef:
-          name: catalogue
-
-
-
- 
-
+            name: catalogue

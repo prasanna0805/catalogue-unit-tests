@@ -1,6 +1,6 @@
 # config file from k8-resource
 apiVersion: apps/v1
-kind: Deployment
+kind: ConfigMap
 metadata:
   name: catalogue
   namespace: {{ .Values.namespace }}
@@ -10,5 +10,5 @@ metadata:
     tier: backend
     component: catalogue
 data:
-  MONGO: "true"  
+  MONGO: "true" 
   MONGO_URL: {{ .Values.configMap.MONGO_URL }}
