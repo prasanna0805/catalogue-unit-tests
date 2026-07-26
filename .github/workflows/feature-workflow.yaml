@@ -1,0 +1,8 @@
+name: feature-pipeline
+on: [push]
+jobs:
+  feature-pipeline:
+    uses: prasanna0805/workflows/.github/workflows/nodejs-feature-pipeline.yaml@main
+    with: 
+      project: 'roboshop'
+      component: 'catalogue'
