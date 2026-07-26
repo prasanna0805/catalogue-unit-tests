@@ -5,7 +5,7 @@ on:
 
 jobs:
   feature-pipeline:
-    if: guthub.ref_name != 'main'
+    if: github.ref_name != 'main'
     uses: prasanna0805/workflows/.github/workflows/nodejs-feature-pipeline.yaml@main
     with: 
       project: 'roboshop'
