@@ -6,8 +6,8 @@ on:
 jobs:
   feature-pipeline:
     if: github.ref_name != 'main'
-    uses: Naga-Sai-Prasanna/workflows/.github/workflows/nodejs-feature-pipeline.yaml@main
+    uses: prasanna0805/workflows/.github/workflows/nodejs-feature-pipeline.yaml@main
     with: 
       project: 'roboshop'
-      component: 'catalogue'
+      component: 'catalogue'  
  
