@@ -2,6 +2,7 @@ name: feature-pipeline
 on: [push]
 jobs:
   feature-pipeline:
+    if: guthub.ref_name == 'feature-*'
     uses: prasanna0805/workflows/.github/workflows/nodejs-feature-pipeline.yaml@main
     with: 
       project: 'roboshop'
