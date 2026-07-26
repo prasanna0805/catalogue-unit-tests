@@ -1,8 +1,11 @@
 name: feature-pipeline
-on: [push]
+on: 
+  push:
+  workflow_dispatch:
+
 jobs:
   feature-pipeline:
-    if: guthub.ref_name == 'feature-*'
+    if: guthub.ref_name != 'main'
     uses: prasanna0805/workflows/.github/workflows/nodejs-feature-pipeline.yaml@main
     with: 
       project: 'roboshop'
