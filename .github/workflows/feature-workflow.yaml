@@ -1,7 +1,7 @@
 name: feature-pipeline
-on: 
-  push:
-  workflow_dispatch:
+on:   workflow_dispatch
+  # push:
+
 
 jobs:
   feature-pipeline:
