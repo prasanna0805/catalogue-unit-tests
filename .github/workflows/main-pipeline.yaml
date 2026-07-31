@@ -40,5 +40,5 @@ jobs:
       version: ${{ inputs.version || '' }}
       jira_key: ${{ inputs.jira_key || '' }}
       cr_number: ${{ inputs.cr_number || '' }}
-      language: nodejs
+      # language: nodejs
     secrets: inherit
